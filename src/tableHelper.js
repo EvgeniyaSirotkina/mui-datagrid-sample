@@ -1,109 +1,114 @@
 export const fundListColumns = [
-    { field: 'id', headerName: 'ID', width: 90 },
-    { field: 'guid', headerName: 'GUID', width: 90 },
     {
       field: 'fundName',
       headerName: 'Fund Name',
-      width: 150,
+      flex: 1,
     },
     {
       field: 'manager',
       headerName: 'Manager',
-      width: 150,
+      flex: 1,
     },
     {
       field: 'fundExposureM',
       headerName: 'Fund Exposure (m)',
       description: 'Some description',
       type: 'number',
-      width: 110,
+      flex: 1,
     },
     {
       field: 'fundExposurePerc',
       headerName: 'Fund Exposure (%)',
       description: 'Some description',
       type: 'number',
-      width: 110,
+      flex: 1,
     },
     {
       field: 'status',
       headerName: 'Status',
-      width: 150,
+      flex: 1,
     },
     {
       field: 'lastUpdatedDate',
       headerName: 'Last Updated Date',
-      width: 150,
+      flex: 1,
     },
   ];
 
-  export const voteRecordsColumns = [ 
-    {
-        field: 'id',
-        headerName: 'ID',
-    },
-    {
-        field: 'guid',
-        headerName: 'Guid',
-    }, 
+  export const voteRecordsColumns = [
     {
         field: 'holdings',
         headerName: 'Holdings',
+        flex: 1,
     }, 
     {
         field: 'fund',
         headerName: 'Fund',
+        flex: 1,
     }, 
     {
         field: 'assetManager',
         headerName: 'Asset Manager',
+        flex: 1,
     }, 
     {
         field: 'fundExposurePerc',
         headerName: 'Fund Exposure (m)',
+        flex: 1,
     }, 
     {
         field: 'clientInvestd',
         headerName: 'Client Invested',
+        flex: 1,
     }, 
     {
         field: 'totalAssets',
         headerName: 'Total Assets',
+        flex: 1,
     }, 
     {
         field: 'meetingType',
         headerName: 'Meeting Type',
+        flex: 1,
     }, 
     {
         field: 'meetingDate',
         headerName: 'Date',
+        flex: 1,
     }, 
     {
         field: 'proposalText',
         headerName: 'Proposal Text',
+        flex: 1,
     }, 
     {
         field: 'topTenHoldings',
         headerName: 'Top 10 Holdings',
+        flex: 1,
     }, 
     {
         field: 'assetAndCompanyDifferently',
         headerName: 'Asset And Company Vote Differently',
+        flex: 1,
     }, 
     {
         field: 'managerVotedDifferentlyForTheSameProposal',
         headerName: 'Manager Voted Differently For The Same Proposal',
+        flex: 1,
     }, 
     {
         field: 'managerMarkedSignificant',
         headerName: 'Manager Marked Significant',
+        flex: 1,
     }, 
     {
         field: 'significance',
         headerName: 'Significance',
+        flex: 1,
     }, 
     {
         field: 'rationale',
         headerName: 'Rationale',
+        flex: 1,
     },
 ];
