@@ -38,8 +38,15 @@ export const fundListColumns = [
   export const voteRecordsColumns = [
     {
         field: 'holdings',
-        headerName: 'Holdings',
-        flex: 1,
+        flex: 1, 
+        renderHeader: () => (
+            <strong>
+              {'Holdings '}
+              <span role="img" aria-label="snowman">
+                ☃️
+              </span>
+            </strong>
+          ),
     }, 
     {
         field: 'fund',
