@@ -1,7 +1,9 @@
+import Table from './Table'
+
 const App = () => {
   return (
     <>
-
+      <Table />
     </>
   );
 }
