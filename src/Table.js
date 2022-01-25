@@ -4,10 +4,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
+import { GridToolbarContainer, GridToolbarFilterButton, GridToolbarColumnsButton } from '@mui/x-data-grid';
+
 import DataGridComponent from './DataGridComponent';
 import { fundListColumns, voteRecordsColumns } from './tableHelper';
 
-function TabPanel(props) {
+const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -27,11 +29,20 @@ function TabPanel(props) {
   );
 }
 
-function a11yProps(index) {
+const a11yProps = (index) => {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
   };
+}
+
+const CustomToolbar = () => {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarColumnsButton />
+      <GridToolbarFilterButton />
+    </GridToolbarContainer>
+  );
 }
 
 const Table = () => {
@@ -68,7 +79,12 @@ const Table = () => {
       <DataGridComponent columns={fundListColumns} rows={fundList} />
     </TabPanel>
     <TabPanel value={value} index={1}>
-    <DataGridComponent columns={voteRecordsColumns} rows={voteRecords} />
+    <DataGridComponent 
+      columns={voteRecordsColumns} 
+      rows={voteRecords} 
+      components={{
+        Toolbar: CustomToolbar,
+      }} />
     </TabPanel>
   </Box>
   );
