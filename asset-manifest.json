@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/mui-datagrid-sample/static/js/main.265494c6.js",
+    "main.js": "/mui-datagrid-sample/static/js/main.f0ddabc6.js",
     "index.html": "/mui-datagrid-sample/index.html",
-    "main.265494c6.js.map": "/mui-datagrid-sample/static/js/main.265494c6.js.map"
+    "main.f0ddabc6.js.map": "/mui-datagrid-sample/static/js/main.f0ddabc6.js.map"
   },
   "entrypoints": [
-    "static/js/main.265494c6.js"
+    "static/js/main.f0ddabc6.js"
   ]
 }
