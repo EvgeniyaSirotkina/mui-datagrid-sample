@@ -4,12 +4,12 @@ const DataGridComponent = (props) => {
   const { columns, rows } = props;
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 650 }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={25}
-        rowsPerPageOptions={[25]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
       />
     </div>
   );
