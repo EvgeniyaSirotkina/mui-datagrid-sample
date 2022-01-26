@@ -1,3 +1,5 @@
+import Rating from '@mui/material/Rating';
+
 export const fundListColumns = [
     {
       field: 'fundName',
@@ -111,6 +113,13 @@ export const fundListColumns = [
     {
         field: 'significance',
         headerName: 'Significance',
+        render: rowData => {
+          return <Rating name="read-only" value={4} readOnly />;
+        },
+        cellStyle: {
+          backgroundColor: "#039be5",
+          color: "#FFF"
+        },
         flex: 1,
     }, 
     {
@@ -118,4 +127,104 @@ export const fundListColumns = [
         headerName: 'Rationale',
         flex: 1,
     },
+];
+
+export const voteRecordsExtColumns = [
+  {
+      field: 'holdings',
+      headerName: 'Holdings',
+      flex: 1, 
+  }, 
+  {
+      field: 'company',
+      headerName: 'Company',
+      flex: 1, 
+  }, 
+  {
+      field: 'fund',
+      headerName: 'Fund',
+      flex: 1,
+  }, 
+  {
+      field: 'assetManager',
+      headerName: 'Asset Manager',
+      flex: 1,
+  }, 
+  {
+      field: 'fundExposurePerc',
+      headerName: 'Fund Exposure (m)',
+      flex: 1,
+  }, 
+  {
+      field: 'clientInvestd',
+      headerName: 'Client Invested',
+      flex: 1,
+  }, 
+  {
+      field: 'totalAssets',
+      headerName: 'Total Assets',
+      flex: 1,
+  }, 
+  {
+      field: 'meetingType',
+      headerName: 'Meeting Type',
+      flex: 1,
+  }, 
+  {
+      field: 'meetingDate',
+      headerName: 'Date',
+      flex: 1,
+  }, 
+  {
+      field: 'proposalText',
+      headerName: 'Proposal Text',
+      flex: 1,
+  }, 
+  {
+      field: 'topTenHoldings',
+      headerName: 'Top 10 Holdings',
+      flex: 1,
+  }, 
+  {
+      field: 'assetAndCompanyDifferently',
+      headerName: 'Asset And Company Vote Differently',
+      flex: 1,
+  }, 
+  {
+      field: 'managerVotedDifferentlyForTheSameProposal',
+      headerName: 'Manager Voted Differently For The Same Proposal',
+      flex: 1,
+  }, 
+  {
+      field: 'managerMarkedSignificant',
+      headerName: 'Manager Marked Significant',
+      flex: 1,
+  }, 
+  {
+      field: 'significance',
+      headerName: 'Significance',
+      render: rowData => {
+        return <Rating name="read-only" value={4} readOnly />;
+      },
+      cellStyle: {
+        backgroundColor: "#039be5",
+        color: "#FFF"
+      },
+      flex: 1,
+  }, 
+  {
+      field: 'rationale',
+      headerName: 'Rationale',
+      flex: 1,
+  },
+  {
+      field: 'tags',
+      headerName: 'Tags',
+      flex: 1,
+  },
+  {
+      field: 'modelPortfolios',
+      headerName: 'Model Portfolios',
+      flex: 1,
+  }
 ];

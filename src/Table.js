@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { GridToolbarContainer, GridToolbarFilterButton, GridToolbarColumnsButton } from '@mui/x-data-grid';
 
 import DataGridComponent from './DataGridComponent';
-import { fundListColumns, voteRecordsColumns } from './tableHelper';
+import { fundListColumns, voteRecordsColumns, voteRecordsExtColumns } from './tableHelper';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -48,6 +48,7 @@ const CustomToolbar = () => {
 const Table = () => {
   const [fundList, setFundList] = useState([]);
   const [voteRecords, setVoteRecords] = useState([]);  
+  const [voteRecordsExt, setVoteRecordsExt] = useState([]);  
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -55,15 +56,21 @@ const Table = () => {
   };
 
   useEffect(function getData() {
-    fetch('https://raw.githubusercontent.com/EvgeniyaSirotkina/demojsondata/main/db.json')
+    fetch('https://raw.githubusercontent.com/EvgeniyaSirotkina/testjsondata/main/voteRecords.json')
         .then(response => response.json())
-        .then(data => {
-          data.fundList && setFundList(data.fundList);
-          data.voteRecords && setVoteRecords(data.voteRecords);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        .then(data => data.voteRecords && setVoteRecords(data.voteRecords))
+        .catch(error => console.log(error))
+
+    fetch('https://raw.githubusercontent.com/EvgeniyaSirotkina/testjsondata/main/voteRecordsExt.json')
+        .then(response => response.json())
+        .then(data => data.voteRecordsExtended && setVoteRecordsExt(data.voteRecordsExtended))
+        .catch(error => console.log(error))
+        
+    fetch('https://raw.githubusercontent.com/EvgeniyaSirotkina/testjsondata/main/fundList.json')
+        .then(response => response.json())
+        .then(data => data.fundList && setFundList(data.fundList))
+        .catch(error => console.log(error))
+
     // eslint-disable-next-line
     }, []);
 
@@ -73,6 +80,7 @@ const Table = () => {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Fund List" {...a11yProps(0)} />
           <Tab label="Voiting Records" {...a11yProps(1)} />
+          <Tab label="Voiting Records Ext" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -82,6 +90,14 @@ const Table = () => {
       <DataGridComponent 
         columns={voteRecordsColumns} 
         rows={voteRecords} 
+        components={{
+          Toolbar: CustomToolbar,
+        }} />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+      <DataGridComponent 
+        columns={voteRecordsExtColumns} 
+        rows={voteRecordsExt} 
         components={{
           Toolbar: CustomToolbar,
         }} />
