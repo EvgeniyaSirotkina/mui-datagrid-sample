@@ -76,13 +76,13 @@ export const fundListColumns = [
         flex: 1,
     }, 
     {
-        field: 'meetingType',
-        headerName: 'Meeting Type',
+        field: 'meetingDate',
+        headerName: 'Date',
         flex: 1,
     }, 
     {
-        field: 'meetingDate',
-        headerName: 'Date',
+        field: 'meetingType',
+        headerName: 'Meeting Type',
         flex: 1,
     }, 
     {
