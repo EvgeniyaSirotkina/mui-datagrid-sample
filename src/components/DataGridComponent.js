@@ -5,8 +5,8 @@ const DataGridComponent = (props) => {
     <div style={{ height: 650 }}>
       <DataGrid
         {...props}
-        pageSize={25}
-        rowsPerPageOptions={[25]}
+        pageSize={10}
+        rowsPerPageOptions={[10]}
       />
     </div>
   );
