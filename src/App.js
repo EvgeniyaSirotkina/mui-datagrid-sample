@@ -1,9 +1,9 @@
-import Table from './Table'
+import Main from './components/Main'
 
 const App = () => {
   return (
     <>
-      <Table />
+      <Main />
     </>
   );
 }
