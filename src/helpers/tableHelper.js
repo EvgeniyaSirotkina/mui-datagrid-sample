@@ -5,10 +5,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 
 const StyledRating = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#1D8B8D',
-  },
-  '& .MuiRating-iconEmpty': {
+  '& .MuiRating-icon': {
     color: '#1D8B8D',
   },
 });
@@ -141,7 +138,7 @@ export const fundListColumns = [
           const assetAndCompanyDifferentlyValue = params.row.assetAndCompanyDifferently === 'True' ? 1 : 0;
           const managerVotedDifferentlyForTheSameProposalValue = params.row.managerVotedDifferentlyForTheSameProposal === 'True' ? 1 : 0;
           const managerMarkedSignificantValue = params.row.managerMarkedSignificant === 'True' ? 1 : 0;
-          
+
           return topTenHoldingsValue + assetAndCompanyDifferentlyValue + managerMarkedSignificantValue + managerVotedDifferentlyForTheSameProposalValue;
         },
         renderCell: (params) => (
