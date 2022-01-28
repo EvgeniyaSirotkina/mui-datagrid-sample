@@ -63,8 +63,8 @@ const Main = (props) => {
           textColor="primary" 
           onChange={handleChange}
         >
-          <Tab label="Voiting Records" {...a11yProps(0)} />
-          <Tab label="Fund List" {...a11yProps(1)} />
+          <Tab label="Voiting Records" />
+          <Tab label="Fund List" />
         </Tabs>
 
         <Box display="flex" alignItems="flex-start">
@@ -75,14 +75,8 @@ const Main = (props) => {
       {value === 0 ? (<VoteRecordsGridTable />) : <FundListDataGridTable />}
     </>
 
-  );
-}
 
-const a11yProps = (index) => {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
+  );
 }
 
 const mapDispatchToProps = {
