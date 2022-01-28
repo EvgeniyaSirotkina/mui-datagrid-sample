@@ -9,8 +9,9 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
 import VoteRecordsGridTable from './VoteRecordsGridTable';
-import { TabPanel } from './TabPanel';
 import FundListDataGridTable from './FundListDataGridTable';
+
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 const Main = (props) => {
   const [value, setValue] = React.useState(0);
@@ -54,20 +55,26 @@ const Main = (props) => {
     }, []);
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+    <>
+      <Box display="flex" alignItems="flex-end" justifyContent="space-between" sx={{ width: '100%' }}>
+        <Tabs 
+          value={value} 
+          indicatorColor="secondary"
+          textColor="primary" 
+          onChange={handleChange}
+        >
           <Tab label="Voiting Records" {...a11yProps(0)} />
           <Tab label="Fund List" {...a11yProps(1)} />
         </Tabs>
+
+        <Box display="flex" alignItems="flex-start">
+          <SearchOutlinedIcon />
+        </Box>
       </Box>
-      <TabPanel value={value} index={0}>
-        <VoteRecordsGridTable />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <FundListDataGridTable />
-      </TabPanel>
-    </Box>
+
+      {value === 0 ? (<VoteRecordsGridTable />) : <FundListDataGridTable />}
+    </>
+
   );
 }
 
