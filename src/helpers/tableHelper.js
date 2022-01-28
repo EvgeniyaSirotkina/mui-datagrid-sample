@@ -1,3 +1,18 @@
+import { styled } from '@mui/material/styles';
+import Rating from '@mui/material/Rating';
+
+import CircleIcon from '@mui/icons-material/Circle';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+
+const StyledRating = styled(Rating)({
+  '& .MuiRating-iconFilled': {
+    color: '#1D8B8D',
+  },
+  '& .MuiRating-iconEmpty': {
+    color: '#1D8B8D',
+  },
+});
+
 export const fundListColumns = [
     {
       field: 'fundName',
@@ -106,6 +121,39 @@ export const fundListColumns = [
     {
         field: 'significance',
         headerName: 'Significance',
+        renderCell: (params) => (
+          <StyledRating
+            name="significance-value"
+            defaultValue={Number.parseInt(params.value)}
+            max={4}
+            readOnly
+            icon={<CircleIcon fontSize="inherit" />}
+            emptyIcon={<CircleOutlinedIcon fontSize="inherit" />}
+          />
+        ),
+        flex: 1,
+    },
+    {
+        field: 'significance_calc',
+        headerName: 'Significance Calc',
+        valueGetter: (params) => {
+          const topTenHoldingsValue = params.row.topTenHoldings === 'True' ? 1 : 0;
+          const assetAndCompanyDifferentlyValue = params.row.assetAndCompanyDifferently === 'True' ? 1 : 0;
+          const managerVotedDifferentlyForTheSameProposalValue = params.row.managerVotedDifferentlyForTheSameProposal === 'True' ? 1 : 0;
+          const managerMarkedSignificantValue = params.row.managerMarkedSignificant === 'True' ? 1 : 0;
+          
+          return topTenHoldingsValue + assetAndCompanyDifferentlyValue + managerMarkedSignificantValue + managerVotedDifferentlyForTheSameProposalValue;
+        },
+        renderCell: (params) => (
+          <StyledRating
+            name="significance-value"
+            defaultValue={Number.parseInt(params.value)}
+            max={4}
+            readOnly
+            icon={<CircleIcon fontSize="inherit" />}
+            emptyIcon={<CircleOutlinedIcon fontSize="inherit" />}
+          />
+        ),
         flex: 1,
     },
 ];
